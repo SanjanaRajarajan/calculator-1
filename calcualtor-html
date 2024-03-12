@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    .container{
+      height:562px;
+      width:380px;
+      background-color: rgba(0, 0, 0, 0.433);
+      margin-top: 50px;
+      margin-bottom: 30px;
+      border:none;
+      
+    }
+    input[type="button"]{
+      background-color: rgba(0, 0, 0, 0.393) rgba(0, 0, 0, 0.741);
+      width: 92px;
+      height: 91px;
+      margin-top: 0px;
+      font-size: 24px; 
+      border-bottom: 7px;
+      border-right: 0px;
+      border-left: 0px;
+      border: none;
+    }
+   
+    input[type="text"]
+    {
+      color: white;
+      font-size: 30px;
+      height: 90px;
+      width:372px;
+      text-align: end;
+      border: none;
+      background-color: rgba(0, 0, 0, 0.127);
+    }
+    #result{
+      background-color: orangered;
+    }
+    .row1{
+      margin-bottom: 1%;
+    }
+    .row2{
+      margin-bottom: 1%;
+    }
+    .row3{
+      margin-bottom: 1%;
+    }
+    .row4{
+      margin-bottom: 1%;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    function appendToDisplay(value){
+      document.getElementById('display').value+=value;
+    }
+    function clearToDisplay(){
+      document.getElementById('display').value="";
+    }
+    function deleteToDisplay(){
+      var del=document.getElementById("display").value;
+      document.getElementById("display").value=del.slice(0,-1);
+    }
+    function equal() {
+      var display = document.getElementById("display");
+      var equation = display.value;
+      var result = eval(equation);
+      display.value = result;
+    }
+  </script><center>
+  <div class="container" >
+    <div class="output">
+      <input type="text" id="display"  readonly >
+      
+    <div class="total">
+      <div class="row1">
+        <input type="button" value="AC" onclick="clearToDisplay()">
+        <input type="button" value="del" onclick="deleteToDisplay()">
+        <input type="button" value="/" onclick="appendToDisplay('/')">
+        <input type="button" value="%" onclick="appendToDisplay('%')">
+      </div>
+      <div class="row2">
+        <input type="button" value="7" onclick="appendToDisplay('7')">
+        <input type="button" value="8" onclick="appendToDisplay('8')">
+        <input type="button" value="9" onclick="appendToDisplay('9')">
+        <input type="button" value="*" onclick="appendToDisplay('*')">
+      </div>
+      <div class="row3">
+        <input type="button" value="4" onclick="appendToDisplay('4')">
+        <input type="button" value="5" onclick="appendToDisplay('5')">
+        <input type="button" value="6" onclick="appendToDisplay('6')">
+        <input type="button" value="-" onclick="appendToDisplay('-')">
+      </div>
+      <div class="row4">
+        <input type="button" value="1" onclick="appendToDisplay('1')">
+        <input type="button" value="2" onclick="appendToDisplay('2')">
+        <input type="button" value="3" onclick="appendToDisplay('3')">
+        <input type="button" value="+" onclick="appendToDisplay('+')">
+      </div>
+      <div class="row5">
+        <input type="button" value="00" onclick="appendToDisplay('00')">
+        <input type="button" value="0" onclick="appendToDisplay('0')">
+        <input type="button" value="." onclick="appendToDisplay('.')">
+        <input type="button" id="display" value="=" onclick="equal()">
+      </div>
+      </div>
+  </div>
+</center>
+</body>
+</html>
